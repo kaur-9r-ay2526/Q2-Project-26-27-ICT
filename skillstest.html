@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Metal Element Lookup</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2023.11.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2023.11.1/core.js"></script>
+
+
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column; /* Stacks children vertically */
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: #4a5568;
+            font-weight: 600;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4a90e2;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #edf2f7;
+            margin: 20px 0;
+        }
+
+        h3 {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card {
+            background-color: #f7fafc;
+            border: 1px solid #edf2f7;
+            border-radius: 10px;
+            padding: 15px 20px;
+            display: flex;
+            flex-direction: column; 
+            gap: 8px;
+        }
+
+        .info-card p {
+            color: #4a5568;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-card strong {
+            color: #2d3748;
+        }
+
+        .info-card span {
+            font-weight: 600;
+            color: #2b6cb0;
+        }
+
+        #outMessage {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 600;
+            color: #e53e3e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Non-Metal Search</h2>
+
+        <div class="input-group">
+            <label for="symbolInput">Enter Element Symbol:</label>
+            <div class="input-row">
+                <input type="text" id="symbolInput" placeholder="e.g. H, O, C, N">
+                <button py-click="search_element">Search</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <h3>Element Information</h3>
+        
+        <div class="info-card">
+            <p><strong>Symbol:</strong> <span id="outSymbol">-</span></p>
+            <p><strong>Name:</strong> <span id="outName">-</span></p>
+            <p><strong>Atomic Number:</strong> <span id="outNumber">-</span></p>
+            <p><strong>Atomic Mass:</strong> <span id="outMass">-</span></p>
+        </div>
+
+        <p id="outMessage"></p>
+    </div>
+
+    <script type="py" src="main.py"></script>
+
+</body>
+</html>

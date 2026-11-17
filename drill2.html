@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Club Members</title>
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 45%;
+        }
+        button {
+            padding: 9px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Magic Arts Club Roster</h2>
+        <p>Enter a new student's name to add them to the master list:</p>
+        
+        <input type="text" id="first_name" placeholder="First Name">
+        <input type="text" id="last_name" placeholder="Last Name">
+        <br>
+        
+        <button py-click="add_member">Add Member</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script type="py" src="./main.py"></script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.10.2/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.10.2/core.js"></script>
+    <title>Magic Arts Club Members</title>
+</head>
+ <!-- Google Fonts for whimsical typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Marcellus&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons for delicate magical accents -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.
+    css">
+
+
+    <!-- CSS Styling for a soft, light, and whimsical magical design -->
+    <style>
+        :root {
+            --bg-lavender: #f7f4fc;
+            --parchment: #fdfbf7;
+            --purple-accent: #7c5295;
+            --purple-light: #ece3f5;
+            --gold-accent: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            --text-main: #3a2e4c;
+        }
+
+        body {
+            background-color: var(--bg-lavender);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(220, 200, 240, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(245, 230, 200, 0.4) 0%, transparent 40%);
+            font-family: 'Marcellus', serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        /* Container Card */
+        .magic-container {
+            background: var(--parchment);
+            border: 2px solid var(--gold-accent);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(124, 82, 149, 0.1), 0 0 15px var(--gold-glow);
+            width: 100%;
+            max-width: 520px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Decorative Sparkle Accents */
+        .magic-container::before {
+            content: "✨";
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .magic-container::after {
+            content: "✨";
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        /* Header Title */
+        h1.title {
+            font-family: 'Cinzel', serif;
+            color: var(--purple-accent);
+            font-size: 1.8rem;
+            margin: 0 0 0.5rem 0;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        p.subtitle {
+            font-size: 0.95rem;
+            color: #6b5880;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Form Controls */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Input Field */
+        input[type="text"]#student_name {
+            width: 85%;
+            padding: 0.85rem 1.2rem;
+            border: 1.5px solid var(--purple-accent);
+            border-radius: 30px;
+            background: #ffffff;
+            font-family: 'Marcellus', serif;
+            font-size: 1rem;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            text-align: center;
+        }
+
+        input[type="text"]#student_name:focus {
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 10px var(--gold-glow), inset 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* Search Button */
+        input[type="button"] {
+            background: linear-gradient(135deg, #8e62ac 0%, var(--purple-accent) 100%);
+            color: #ffffff;
+            border: 1px solid var(--gold-accent);
+            padding: 0.75rem 2.2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(124, 82, 149, 0.2);
+        }
+
+        input[type="button"]:hover {
+            background: linear-gradient(135deg, var(--purple-accent) 0%, #633c7a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(124, 82, 149, 0.3), 0 0 10px var(--gold-glow);
+        }
+
+        /* Results Display Container (#meta) */
+        #meta {
+            margin-top: 1.5rem;
+            transition: all 0.4s ease;
+        }
+
+        /* Styling generated certificate card rendered into #meta */
+        .acceptance-card {
+            background: #ffffff;
+            border: 2px dashed var(--gold-accent);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            position: relative;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .acceptance-card h2 {
+            font-family: 'Great Vibes', cursive;
+            color: var(--purple-accent);
+            font-size: 2.2rem;
+            margin: 0.2rem 0;
+            font-weight: normal;
+        }
+
+        .acceptance-card p {
+            margin: 0.4rem 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .wax-seal-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            width: 45px;
+            height: 45px;
+            background: #b83232;
+            color: #ffffff;
+            border-radius: 50%;
+            line-height: 45px;
+            font-size: 1.2rem;
+            box-shadow: 0 3px 8px rgba(184, 50, 50, 0.4);
+            border: 2px solid #912424;
+        }
+    </style>
+</head>
+<body>
+    <div class="magic-container">
+        <h1 class="title"><i class="fa-solid fa-hat-wizard"></i> Magic Arts Club</h1>
+        <p class="subtitle">Official Membership Acceptance Portal</p>
+
+    <form>
+        <input type="text" id="first_name" placeholder="Enter your first name"><br>
+        <input type="text" id="last_name" placeholder="Enter your last name"><br>
+        <input type="button" py-click="MagicArts_club" value="Search" class="btn-magical w-full py-3.5 px-6 rounded-xl text-amber-200 font-cinzel font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-2 group cursor-pointer">
+    </form>
+    <div id="meta"></div>
+    <py-script src="main.py"></py-script>
+</body>
+</html>
